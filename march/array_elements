@@ -1,0 +1,15 @@
+read -p "How many elements you want to enter: " n
+
+declare -a arr
+
+for ((i=0;i<n;i++));
+do
+        read -p "Enter element $((i+1)): " arr[$i]
+done
+
+echo "Elements are : "
+
+for ((i=0;i<n;i++));
+do
+        echo "${arr[$i]}"
+done
