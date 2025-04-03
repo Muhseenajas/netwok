@@ -1,0 +1,23 @@
+
+sfile="hello.sh"
+dfile="hai.sh"
+
+if [ -e $sfile ] && [ -r $sfile ]
+then
+        echo "source file is exist and readable"
+
+        if [ -w $dfile ] || [ ! -e $dfile ]
+        then
+                echo "destination file writable and exist"
+
+                cat $sfile > $dfile
+                echo "contents copied successfully"
+        else
+                echo "destination file is not writable"
+        fi
+else
+        echo "source file does not readable"
+fi
+
+
+
