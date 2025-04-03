@@ -1,0 +1,32 @@
+
+filenme="$1"
+echo "select an option "
+echo "delete a particular line"
+echo "delete the last line"
+echo "delete lines from range x to y"
+echo "delete all blank lines"
+
+read -p "enter your choice: " choice
+
+case $choice in
+        1)
+                read -p "enter the line number to delete " line
+                sed -i "${line}d" "file.txt"
+                echo "line $line has been deleted";;
+        2)
+                sed -i '$d' "file.txt"
+                echo "last line is deleted";;
+        3)
+                read -p "enter starting line number(x): " start
+                read -p "enter ending line number(y): " end
+                sed -i "${start},${end}d" "file.txt"
+                echo "lines from $start to $end have been deleted";;
+        4)
+                sed -i '' '/^$/d/' "file.txt"
+                echo "all blank lines have been deleted";;
+        *)
+                echo "Invalid options";;
+esac
+
+
+
